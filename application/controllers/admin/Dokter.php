@@ -58,4 +58,13 @@ class Dokter extends CI_Controller {
 		redirect('admin/dokter');
 	}
 
+	public function laporan()
+	{
+		$data['title'] = 'Laporan Dokter';
+		$data['dokter'] = $this->Dokter_m->get('dokter')->result_array();
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/laporan/laporan_dokter');
+		$this->load->view('layout/footer');
+	}
+
 }

@@ -85,6 +85,12 @@
               Laporan Obat
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('laporan/kunjungan'); ?>">
+              <i class="fas fa-notes-medical"></i>
+              Laporan Kunjungan
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

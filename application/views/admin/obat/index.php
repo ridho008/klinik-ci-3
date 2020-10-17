@@ -17,6 +17,7 @@
       <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#formModalObat">
         <i class="fas fa-plus"></i> Tambah Data Obat
       </button>
+      <a href="<?= base_url('laporan/obat'); ?>" target="_blank" class="btn btn-secondary mb-2"><i class="fas fa-print"></i></a>
       <?php if(validation_errors()) : ?>
         <div class="alert alert-danger" role="alert"><?= validation_errors(); ?></div>
       <?php endif; ?>

@@ -145,4 +145,13 @@ class Kunjungan extends CI_Controller {
 		redirect('admin/kunjungan/rekam/' . $idBerobat);
 	}
 
+	public function laporan()
+	{
+		$data['title'] = 'Laporan Kunjungan/Berobat';
+		$data['kunjungan'] = $this->Kunjungan_m->get_join('berobat')->result_array();
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/laporan/laporan_kunjungan');
+		$this->load->view('layout/footer');
+	}
+
 }

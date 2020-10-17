@@ -58,4 +58,13 @@ class Obat extends CI_Controller {
 		redirect('admin/obat');
 	}
 
+	public function laporan()
+	{
+		$data['title'] = 'Laporan Obat';
+		$data['obat'] = $this->Obat_m->get('obat')->result_array();
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/laporan/laporan_obat');
+		$this->load->view('layout/footer');
+	}
+
 }

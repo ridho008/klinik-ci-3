@@ -66,4 +66,13 @@ class Pasien extends CI_Controller {
 		redirect('admin/obat');
 	}
 
+	public function laporan()
+	{
+		$data['title'] = 'Laporan Pasien';
+		$data['pasien'] = $this->Pasien_m->get('pasien')->result_array();
+		$this->load->view('layout/header', $data);
+		$this->load->view('admin/laporan/laporan_pasien');
+		$this->load->view('layout/footer');
+	}
+
 }
