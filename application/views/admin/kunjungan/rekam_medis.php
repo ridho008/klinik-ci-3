@@ -61,20 +61,20 @@
         <div class="card-header bg-dark text-white font-weight-bold text-center">Catatan Rekam Medis</div>
         <div class="card-body">
           <?= form_open('admin/kunjungan/tambahRekam'); ?>
-          <input type="text" name="id_berobat" value="<?= $d['id_berobat']; ?>">
+          <input type="hidden" name="id_berobat" required value="<?= $d['id_berobat']; ?>">
           <div class="form-group">
             <label for="keluhan">Keluhan</label>
-            <textarea name="keluhan" id="keluhan" class="form-control"><?= $d['keluhan']; ?></textarea>
+            <textarea name="keluhan" required id="keluhan" class="form-control"><?= $d['keluhan']; ?></textarea>
             <small class="muted text-danger"><?= form_error('keluhan'); ?></small>
           </div>
           <div class="form-group">
             <label for="diagnosa">Diagnosa</label>
-            <input type="text" name="diagnosa" id="diagnosa" class="form-control" value="<?= $d['keluhan']; ?>">
+            <input type="text" name="diagnosa" required id="diagnosa" class="form-control" value="<?= $d['diagnosa']; ?>">
             <small class="muted text-danger"><?= form_error('diagnosa'); ?></small>
           </div>
           <div class="form-group">
             <label for="penata">Penatalaksanaan</label>
-            <select name="penata" id="penata" class="form-control">
+            <select name="penata" id="penata" required class="form-control">
               <option value="">-- Pilih Penatalaksaan --</option>
               <option value="Rawat Inap" <?php if($d['penatalaksaan'] == 'Rawat Inap'){echo "selected";} ?>>Rawat Inap</option>
               <option value="Rawat Jalan" <?php if($d['penatalaksaan'] == 'Rawat Jalan'){echo "selected";} ?>>Rawat Jalan</option>
@@ -93,12 +93,12 @@
         <div class="card-header bg-dark text-white font-weight-bold text-center">Resep Obat</div>
         <div class="card-body">
           <?= form_open('admin/kunjungan/tambahResep'); ?>
-          <input type="text" name="id_berobat" value="<?= $d['id_berobat']; ?>">
+          <input type="hidden" name="id_berobat" value="<?= $d['id_berobat']; ?>">
           <div class="row">
             <div class="col-md-10">
               <div class="form-group">
                 <label for="obat">Obat</label>
-                <select name="obat" id="obat" class="form-control">
+                <select name="obat" required id="obat" class="form-control">
                   <option value="">-- Pilih Obat --</option>
                   <?php foreach($obat as $o) : ?>
                      <option value="<?= $o['id_obat']; ?>"><?= $o['nama_obat']; ?></option>
@@ -125,7 +125,7 @@
                    <td><?= $no++; ?></td>
                    <td><?= $r['nama_obat']; ?></td>
                    <td>
-                     <a href="<?= base_url('kunjungan/hapusResep/' . $r['id_resep'] . '/' . $r['id_berobat']); ?>"></a>
+                     <a href="<?= base_url('admin/kunjungan/hapusResep/' . $r['id_resep'] . '/' . $r['id_berobat']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ?')"><i class="fas fa-trash"></i></a>
                    </td>
                  </tr>
               <?php endforeach; ?>

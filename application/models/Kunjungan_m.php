@@ -60,13 +60,13 @@ class Kunjungan_m extends CI_Model {
 
 	public function get_resep($id)
 	{
-		// $this->db->select('resep_obat.*, obat.nama_obat');
-		// $this->db->join('obat', 'obat.id_obat = resep_obat.id_obat');
-		// $this->db->join('berobat', 'berobat.id_berobat = resep_obat.id_berobat');
-		// $this->db->where('resep_obat.id_berobat', "berobat.$id");
-		// return $this->db->get();
-		$query = "SELECT resep_obat.*, obat.nama_obat FROM resep_obat INNER JOIN resep_obat.id_obat = obat.id_obat WHERE resep_obat.id_berobat = berobat.$id";
-		return $this->db->query($query);
+		// $this->db->select("resep_obat.*, obat.nama_obat");
+		$this->db->join("obat", "obat.id_obat = resep_obat.id_obat");
+		$this->db->join("berobat", "berobat.id_berobat = resep_obat.id_berobat");
+		$this->db->where("resep_obat.id_berobat", "$id");
+		return $this->db->get('resep_obat');
+		// $query = "SELECT resep_obat.*, obat.nama_obat FROM resep_obat INNER JOIN resep_obat.id_obat = obat.id_obat WHERE resep_obat.id_berobat = berobat.$id";
+		// return $this->db->query($query);
 	}
 
 }
