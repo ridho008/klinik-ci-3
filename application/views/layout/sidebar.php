@@ -47,6 +47,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link<?= $this->uri->segment(2) == 'kunjungan' ? ' active' : '' ?>" href="<?= base_url('admin/kunjungan'); ?>">
+              <i class="fas fa-book-medical"></i>
+              Kunjungan
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link<?= $this->uri->segment(2) == 'obat' ? ' active' : '' ?>" href="<?= base_url('admin/obat'); ?>">
               <i class="fas fa-pills"></i>
               Data Obat
